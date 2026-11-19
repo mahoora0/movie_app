@@ -25,6 +25,7 @@ jobs:
       - name: 3. Flutter SDK 세팅
         uses: subosito/flutter-action@v2
         with:
+          flutter-version: '3.38.x'
           channel: stable
           cache: true
 
@@ -37,7 +38,7 @@ jobs:
         run: flutter analyze --no-fatal-infos
 
       - name: 6. Android Debug APK 빌드
-        run: flutter build apk --debug --android-skip-build-dependency-validation
+        run: flutter build apk --debug
 
       - name: 7. Debug APK 아티팩트 업로드
         uses: actions/upload-artifact@v4
